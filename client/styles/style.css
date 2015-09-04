@@ -17,9 +17,8 @@
 /*end index.html*/
 
 /*home.html*/
-
-#dialog {
-    display: inline-block;
+.info-box {
+    overflow: visible;
 }
 
 .rate {
