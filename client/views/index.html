@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="firstController">
+<head>
+    <meta charset="UTF-8">
+    <title>Rate My Ride</title>
+    <!--STYLES-->
+    <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/styles/style.css">
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCDNHCcUUur9KB9_xKg8n7OIHscT6QDmE"></script>
+    <!--END STYLES-->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+<header class="jumbotron">
+    <h1 class="appName">Rate My Ride!</h1>
+</header>
+    </div>
+        <div class="row">
+            <div>
+                <div class="col-md-8">
+                    <div id="map"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="control-panel">
+                        <div ng-view></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--SCRIPTS-->
+<script type="text/javascript" src="/vendors/angular/angular.min.js"></script>
+<script type="text/javascript" src="/vendors/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/vendors/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="/assets/scripts/app.min.js"></script>
+<!--END SCRIPTS-->
+</body>
+</html>

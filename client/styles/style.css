@@ -1,0 +1,97 @@
+/*index.html*/
+
+.appName {
+    text-align: center;
+    color: #46bcec;
+}
+
+#sidebar {
+    width: 100%;
+    height: 100%;
+}
+
+.jumbotron {
+    background: url('https://nscd.thankyou4caring.org/image/site-images/pattern-5_tireTracks.png') no-repeat;
+    background-size:100%;
+}
+/*end index.html*/
+
+/*home.html*/
+
+#dialog {
+    display: inline-block;
+}
+
+.rate {
+    text-align: center;
+    font-size: 25px;
+    background-color: #46bcec;
+    color: white;
+    letter-spacing: 0.25em;
+}
+
+/*first controller*/
+.input-group {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.start {
+    margin: 5px 5px 5px 5px;
+}
+
+.end {
+    margin: 5px 5px 5px 5px;
+}
+/*end first controller*/
+
+/*buttons*/
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}
+
+.btn.sharp {
+    border-radius:0;
+}
+
+/*end buttons*/
+
+/*main map*/
+#map {
+    height: 600px;
+    width: 100%;
+    margin: 20px 0 20px 0;
+}
+/*end main map*/
+
+/*end home.html*/
+
+/*route.html*/
+
+/*end route.html*/
+
+
+

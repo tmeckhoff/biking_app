@@ -1,0 +1,19 @@
+<div id="rating" ng-controller="firstController">
+    <div>
+        <form novalidate id="createRating" method="post">
+                        <label for="dialogName">Name</label></br>
+                        <input id ='dialogName' type='text' ng-model='formData.name'/></br></br>
+                        <label for="dialogRating">Choose a bike friendliness rating</label>
+                            <div id="dialogRating">
+                        <div class='radio'><label><input class='radio-inline' type='radio' ng-model='formData.rating' value=1/>Not bike friendly</label></div>
+                        <div class='radio'><label><input class='radio-inline' type='radio' ng-model='formData.rating' value=2/>Mostly not bike friendly</label></div>
+                        <div class='radio'><label><input class='radio-inline' type='radio' ng-model='formData.rating' value=3/>Mostly bike friendly</label></div>
+                        <div class='radio'><label><input class='radio-inline' type='radio' ng-model='formData.rating' value=4/>Super bike friendly</label></div>
+                            </div></br>
+                                <label for="dialogComment">Comment</label></br>
+            <input id='dialogComment' type='text' ng-model='formData.comment'/>
+            </br></br>
+            <input type="submit" class="btn btn-success btn-md btn-block" ng-click='saveData(formData) && closeThisDialog()' value='Save'/>
+        </form>
+</div>
+</div>
