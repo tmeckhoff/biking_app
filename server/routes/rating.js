@@ -20,22 +20,6 @@ router.post('/',function(req,res,next){
     });
 });
 
-router.delete('/:_id', function(req, res) {
-    Location.remove({
-        _id: req.params._id
-    }, function (err) {
-        if (err)
-            res.send(err);
-
-        res.json({
-            message: 'Rating deleted'
-        });
-
-    });
-});
-
-
-
 
 
 module.exports = router;

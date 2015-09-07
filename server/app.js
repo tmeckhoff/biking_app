@@ -21,6 +21,7 @@ app.listen(app.get('port'), function() {
 });
 
 //Mongo Setup
+//var mongoURI = "mongodb://heroku_5sxnx61g:76e4uhcrm9r23gg1usgskolo7n@ds041593.mongolab.com:41593/heroku_5sxnx61g";
 var mongoURI = "mongodb://localhost:27017/rate_my_ride";
 var MongoDB = mongoose.connect(mongoURI).connection;
 

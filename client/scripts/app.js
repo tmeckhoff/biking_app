@@ -227,8 +227,8 @@ myApp.controller('firstController', ['$rootScope', '$scope', '$http', function($
 
                 $rootScope.$broadcast("hideMessages");
 
-                $scope.latitude = $scope.marker.getPosition().lat();
-                $scope.longitude = $scope.marker.getPosition().lng();
+                    $scope.latitude = $scope.marker.getPosition().lat();
+                    $scope.longitude = $scope.marker.getPosition().lng();
 
 
 
