@@ -4,6 +4,8 @@
     <div>
         <form ng-submit="sendRating()" name="ratingForm" novalidate method="post">
             <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
+            <label for="formName">Name</label></br>
+            <input id ='formName' type='text' ng-model='name'/></br></br>
             <label for="formTitle">Title</label></br>
             <input id ='formTitle' type='text' ng-model='title'/></br></br>
             <label for="formRating">Choose a bike friendliness rating</label>

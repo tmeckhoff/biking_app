@@ -19,6 +19,7 @@
 /*home.html*/
 .info-box {
     overflow: visible;
+    display: block;
 }
 
 .rate {

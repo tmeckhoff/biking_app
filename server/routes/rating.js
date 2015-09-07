@@ -11,7 +11,7 @@ router.get('/', function(req,res,next){
 });
 
 router.post('/',function(req,res,next){
-    var rating = new Rating({title: req.body.title, rating: req.body.rating, comment: req.body.comment, longitude: req.body.longitude, latitude: req.body.latitude});
+    var rating = new Rating({name: req.body.name, title: req.body.title, rating: req.body.rating, comment: req.body.comment, longitude: req.body.longitude, latitude: req.body.latitude});
     rating.save(function(err){
         if(err) console.log('error: ', err);
         res.send(rating.toJSON());
