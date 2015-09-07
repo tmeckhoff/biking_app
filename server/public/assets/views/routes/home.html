@@ -2,25 +2,27 @@
 
 <div id="rating" ng-controller="firstController">
     <div>
-        <form ng-submit="sendRating()" name="ratingForm" novalidate method="post">
+        <form ng-submit="sendRating()" name="ratingForm" method="post">
+            <div class="alert alert-danger" ng-model="errorMessage" ng-if="showErrorMessage">{{errorMessage}}</div>
             <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
             <label for="formName">Name</label></br>
-            <input id ='formName' type='text' ng-model='name'/></br></br>
+            <input id ='formName' type='text' required ng-model='name'/></br></br>
             <label for="formTitle">Title</label></br>
-            <input id ='formTitle' type='text' ng-model='title'/></br></br>
+            <input id ='formTitle' type='text' required ng-model='title'/></br></br>
             <label for="formRating">Choose a bike friendliness rating</label>
             <div id="formRating">
-                <div class='radio'><label><input class='radio-inline' type='radio' value=1 ng-model='rating' />Not bike friendly</label></div>
-                <div class='radio'><label><input class='radio-inline' type='radio' value=2 ng-model='rating' />Mostly not bike friendly</label></div>
-                <div class='radio'><label><input class='radio-inline' type='radio' value=3 ng-model='rating' />Mostly bike friendly</label></div>
-                <div class='radio'><label><input class='radio-inline' type='radio' value=4 ng-model='rating' />Super bike friendly</label></div>
+                <div class='radio'><label><input class='radio-inline' type='radio' value=1 ng-model='rating' ng-required='!rating' />Not bike friendly</label></div>
+                <div class='radio'><label><input class='radio-inline' type='radio' value=2 ng-model='rating' ng-required='!rating' />Mostly not bike friendly</label></div>
+                <div class='radio'><label><input class='radio-inline' type='radio' value=3 ng-model='rating' ng-required='!rating' />Mostly bike friendly</label></div>
+                <div class='radio'><label><input class='radio-inline' type='radio' value=4 ng-model='rating' ng-required='!rating' />Super bike friendly</label></div>
             </div></br>
-            <label for="formComment">Comment</label></br>
+            <label for="formComment">Comment (optional)</label></br>
             <input id='formComment' type='text' ng-model='comment'/>
             </br></br>
             <input type='submit' class='btn btn-success btn-md btn-block' value='Save'/>
 
         </form>
+
     </div>
 </div>
 

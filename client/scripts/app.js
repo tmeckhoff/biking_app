@@ -17,6 +17,8 @@ myApp.controller('firstController', ['$rootScope', '$scope', '$http', function($
 
     $scope.ratings = [];
 
+    $scope.currentSelectedMarker;
+
     $scope.Rating = function(name, title, rating, comment, latitude, longitude, id) {
         this.latitude = latitude;
         this.longitude = longitude;
@@ -28,6 +30,14 @@ myApp.controller('firstController', ['$rootScope', '$scope', '$http', function($
     }
 
     $scope.sendRating = function(){
+
+        $scope.showErrorMessage = false;
+
+        if (!$scope.isMarkerSet()) {
+            $scope.errorMessage = "Please set a marker first";
+            $scope.showErrorMessage = true;
+        } else {
+
         return $http.post('/rating', {name: $scope.name, title: $scope.title, rating: $scope.rating, comment: $scope.comment, latitude: $scope.latitude, longitude: $scope.longitude})
                 .success(function(response) {
                 $scope.name = "";
@@ -39,6 +49,7 @@ myApp.controller('firstController', ['$rootScope', '$scope', '$http', function($
                 $scope.refreshRatings();
             });
 
+        }
     };
 
     $scope.refreshRatings = function(){
@@ -61,35 +72,35 @@ myApp.controller('firstController', ['$rootScope', '$scope', '$http', function($
             $scope.ratings.forEach(function (n, i) {
 
 
-                $scope.marker = new google.maps.Marker({
+                n.marker = new google.maps.Marker({
                     draggable: false,
                     position: new google.maps.LatLng(n.latitude, n.longitude),
                     map: $scope.map,
-                    animation: google.maps.Animation.DROP,
                     icon: "../assets/styles/images/cycling.png"
                 });
 
 
-                $scope.infowindow = new google.maps.InfoWindow({
-                    content: '<div class="info-box"><h5>' +
+                n.infowindow = new google.maps.InfoWindow({
+                    content: '<div class="info-box"><h5 class=info-header>' +
                     n.name +
-                    ' said the following about this spot:' + '</h5><p>' +
+                    ' said the following about this spot:' + '</h5><br/><h6>' +
                     n.title +
-                    '</p><br/><p>' + 'Rated it: ' +
-                    n.rating +
-                    '</p><br/><p>'+
-                    n.comment + '</p><br/></div>'
+                    '</h6><br/><p>' + 'They rated it a: ' + ' ' + '<b>' +
+                    n.rating + '</b>' +
+                    '</p><br/><p>'+  '<i>' + "'" +
+                    n.comment + "'" + '</i>' + '</p><br/></div>'
                 });
 
-                google.maps.event.addListener($scope.marker, "click", function () {
-                    $scope.infowindow.open($scope.map, $scope.marker);
+                google.maps.event.addListener(n.marker, "click", function () {
+                    $scope.currentSelectedMarker = n;
+                    n.infowindow.open($scope.map, n.marker);
 
                 });
 
 
             });
 
-            //return $scope.ratings;
+            return $scope.ratings;
 
         });
 
@@ -99,7 +110,7 @@ myApp.controller('firstController', ['$rootScope', '$scope', '$http', function($
         $rootScope.$on('hideMessages', function(){
         $scope.$apply(function(){
             $scope.showSuccessMessage = false;
-
+            $scope.showErrorMessage = false;
         });
 
     });
@@ -212,6 +223,8 @@ myApp.controller('firstController', ['$rootScope', '$scope', '$http', function($
                     icon: "../assets/styles/images/cycling.png"
                 });
 
+
+
                 $rootScope.$broadcast("hideMessages");
 
                 $scope.latitude = $scope.marker.getPosition().lat();
@@ -220,6 +233,11 @@ myApp.controller('firstController', ['$rootScope', '$scope', '$http', function($
 
 
             });
+
+    $scope.isMarkerSet = function() {
+        if ($scope.marker === undefined) return false;
+        else return true;
+    };
 
 }]);//end of controller
 
