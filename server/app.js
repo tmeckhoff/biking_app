@@ -23,7 +23,7 @@ app.listen(app.get('port'), function() {
 //Mongo Setup
 
 //var mongoURI = "mongodb://localhost:27017/rate_my_ride";
-var mongoURI = "mongodb://tmnewberry:zanes1lady!@ds041561.mongolab.com:41561/rate_my_ride";
+var mongoURI = "mongodb://<username><password>@ds041561.mongolab.com:41561/rate_my_ride";
 var MongoDB = mongoose.connect(mongoURI).connection;
 
 MongoDB.on('error', function(err){
