@@ -22,11 +22,12 @@
     border-radius: 10px 10px 10px 10px;
     overflow: visible;
     padding: 10px;
+
 }
 .info-box .info-header {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 22px;
-    font-weight: 400;
+    font-weight: 200;
     padding: 10px;
     background-color: #000000;
     color: white;
@@ -51,10 +52,11 @@
 }
 
 /*first controller*/
-.input-group {
+#rating {
     display: block;
     width: 100%;
     height: 100%;
+    letter-spacing: 0.15em;
 }
 
 .start {

@@ -13,11 +13,12 @@ myApp.config(['$routeProvider', function($routeProvider){
         })
 }]);
 
+
 myApp.controller('firstController', ['$rootScope', '$scope', '$http', function($rootScope, $scope, $http) {
 
     $scope.ratings = [];
 
-    $scope.currentSelectedMarker;
+
 
     $scope.Rating = function(name, title, rating, comment, latitude, longitude, id) {
         this.latitude = latitude;
@@ -81,18 +82,17 @@ myApp.controller('firstController', ['$rootScope', '$scope', '$http', function($
 
 
                 n.infowindow = new google.maps.InfoWindow({
-                    content: '<div class="info-box"><h5 class=info-header>' +
-                    n.name +
-                    ' said the following about this spot:' + '</h5><br/><h6>' +
+                    content: '<div class="info-box"><h5 class=info-header>' + '<b>' +
+                    n.name + '</b>' +
+                    ' said the following about this location:' + '</h5><br/><h6>' +
                     n.title +
-                    '</h6><br/><p>' + 'They rated it a: ' + ' ' + '<b>' +
+                    '</h6><br/><p>' + 'They rated it a: ' + '<br/>' + '<b>' +
                     n.rating + '</b>' +
                     '</p><br/><p>'+  '<i>' + "'" +
                     n.comment + "'" + '</i>' + '</p><br/></div>'
                 });
 
                 google.maps.event.addListener(n.marker, "click", function () {
-                    $scope.currentSelectedMarker = n;
                     n.infowindow.open($scope.map, n.marker);
 
                 });

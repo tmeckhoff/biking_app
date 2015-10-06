@@ -14,15 +14,16 @@ app.use(bodyParser.json({
 app.use('/rating', rating);
 app.use('/', index);
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 3000));
 
 app.listen(app.get('port'), function() {
     console.log("Listening on Port: ", app.get('port'));
 });
 
 //Mongo Setup
-//var mongoURI = "mongodb://heroku_5sxnx61g:76e4uhcrm9r23gg1usgskolo7n@ds041593.mongolab.com:41593/heroku_5sxnx61g";
-var mongoURI = "mongodb://localhost:27017/rate_my_ride";
+
+//var mongoURI = "mongodb://localhost:27017/rate_my_ride";
+var mongoURI = "mongodb://tmnewberry:zanes1lady!@ds041561.mongolab.com:41561/rate_my_ride";
 var MongoDB = mongoose.connect(mongoURI).connection;
 
 MongoDB.on('error', function(err){
